@@ -82,7 +82,7 @@ export default function LoginScreen() {
               <View style={[styles.logoContainer, { backgroundColor: colors.background }]}>
                 <IconSymbol name="car.fill" size={60} color={colors.tint} />
               </View>
-              <Text style={[styles.title, { color: colors.text }]}>Login do Topiqueiro</Text>
+              <Text style={[styles.title, { color: colors.text }]}>Bus Manager</Text>
               <Text style={[styles.subtitle, { color: colors.icon }]}>
                 Acesse sua conta para continuar
               </Text>
