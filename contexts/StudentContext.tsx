@@ -47,6 +47,7 @@ interface StudentProviderProps {
 export function StudentProvider({ children }: StudentProviderProps) {
   const [students, setStudents] = useState<Student[]>([]);
   const [routeSettings, setRouteSettings] = useState<RouteSettings | null>(null);
+  
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -116,10 +117,11 @@ export function StudentProvider({ children }: StudentProviderProps) {
     return await saveStudents(updatedStudents);
   };
 
-  const setRouteSettings = async (settings: RouteSettings): Promise<boolean> => {
+  // << ALTERAÇÃO 1: A função foi renomeada de "setRouteSettings" para "saveRouteSettings"
+  const saveRouteSettings = async (settings: RouteSettings): Promise<boolean> => {
     try {
       await AsyncStorage.setItem('routeSettings', JSON.stringify(settings));
-      setRouteSettings(settings);
+      setRouteSettings(settings); // Agora isso chama a função do useState, corretamente
       return true;
     } catch (error) {
       console.error('Erro ao salvar configurações da rota:', error);
@@ -141,7 +143,8 @@ export function StudentProvider({ children }: StudentProviderProps) {
         updateStudent,
         deleteStudent,
         toggleStudentPresence,
-        setRouteSettings,
+        // << ALTERAÇÃO 2: A propriedade "setRouteSettings" agora aponta para a nova função "saveRouteSettings"
+        setRouteSettings: saveRouteSettings,
         getPresentStudents,
       }}
     >
