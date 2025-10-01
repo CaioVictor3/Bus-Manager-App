@@ -1,15 +1,16 @@
 {
   "expo": {
-    "name": "MeuPrimeiroApp",
-    "slug": "MeuPrimeiroApp",
+    "name": "BusManager",
+    "slug": "BusManager",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "meuprimeiroapp",
+    "scheme": "BusManager",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.BusManager"
     },
     "android": {
       "adaptiveIcon": {
